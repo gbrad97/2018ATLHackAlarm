@@ -48,4 +48,13 @@
         style="@style/Widget.AppCompat.Button.Colored"
         />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:text="Stop Alarm"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
 </RelativeLayout>
