@@ -14,7 +14,7 @@ import android.widget.RadioButton;
 public class MainActivity extends AppCompatActivity {
 
     RadioButton rdiNotification,rdiToast;
-    Button btnOneTime,btnRepeating;
+    Button btnOneTime,btnRepeating, btnStopAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         rdiToast = (RadioButton)findViewById(R.id.rdiToast);
         btnOneTime = (Button)findViewById(R.id.btnOneTime);
         btnRepeating = (Button)findViewById(R.id.btnRepeating);
+        btnStopAlarm = (Button) findViewById(R.id.btnStopAlarm);
 
         btnOneTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
                     startAlarm(true,true);
                 else
                     startAlarm(false,true);
+            }
+        });
+
+        btnStopAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, FacialRecognitionActivity.class);
+                startActivity(myIntent);
             }
         });
 
