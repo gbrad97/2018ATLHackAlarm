@@ -9,23 +9,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     RadioButton rdiNotification,rdiToast;
     Button btnOneTime,btnRepeating, btnStopAlarm;
+    ImageButton androidImageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         rdiNotification=(RadioButton)findViewById(R.id.rdiNotification);
         rdiToast = (RadioButton)findViewById(R.id.rdiToast);
         btnOneTime = (Button)findViewById(R.id.btnOneTime);
         btnRepeating = (Button)findViewById(R.id.btnRepeating);
         btnStopAlarm = (Button) findViewById(R.id.btnStopAlarm);
+        androidImageButton= (ImageButton)findViewById(R.id.image_button_android);
+
+
 
         btnOneTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, FacialRecognitionActivity.class);
                 startActivity(myIntent);
+            }
+        });
+
+        androidImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "It Works", Toast.LENGTH_LONG).show();
             }
         });
 
